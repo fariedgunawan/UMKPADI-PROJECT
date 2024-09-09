@@ -1,6 +1,5 @@
 import logo from "../assets/logo.png";
 import seven from "../assets/seven.png";
-import box from "../assets/box.png";
 import { Modal, ModalContent, ModalHeader, ModalBody, useDisclosure, Input } from "@nextui-org/react";
 import { Select, SelectItem } from "@nextui-org/react";
 import { Tabs, Tab, Chip } from "@nextui-org/react";
@@ -8,7 +7,7 @@ import { Checkbox } from "@nextui-org/react";
 import penguin from "../assets/penguincard.png";
 
 import { Button } from "@nextui-org/react";
-const AddCatalog = () => {
+const AddCatalogList = () => {
   const { isOpen: isAddModalOpen, onOpen: onAddModalOpen, onOpenChange: onAddModalOpenChange } = useDisclosure();
   return (
     <div className="body-mainboard min-h-screen">
@@ -216,12 +215,81 @@ const AddCatalog = () => {
             <input type="text" placeholder="Tulis nama katalog..." className="px-[15px] py-[10px] border-2 w-full" />
           </div>
 
-          <div className="empty-container flex justify-center w-full">
-            <div className="empty-view flex flex-col">
-              <img src={box} alt="" className="w-[400px]" />
-              <Button size="md" className="bg-[#0092AC] w-[200px] ml-[100px] text-white" onPress={onAddModalOpen}>
-                Tambah Produk
+          <div className="search-filter flex flex-row items-center justify-between mt-[20px]">
+            <Input
+              className="w-[250px] rounded-md"
+              type="text"
+              placeholder="Cari Nama Produk"
+              labelPlacement="outside"
+              size="lg"
+              endContent={
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+                </svg>
+              }
+            />
+            <div className="rightside flex flex-row items-center gap-[20px]">
+              <Select size="sm" label="Filter" className="w-[200px]">
+                <SelectItem key="1">Filter 1</SelectItem>
+                <SelectItem key="2">Filter 2</SelectItem>
+                <SelectItem key="3">Filter 3</SelectItem>
+                <SelectItem key="4">Filter 4</SelectItem>
+              </Select>
+              <Select size="sm" label="Urutkan" className="w-[200px]">
+                <SelectItem key="1">Urutkan 1</SelectItem>
+                <SelectItem key="2">Urutkan 2</SelectItem>
+                <SelectItem key="3">Urutkan 3</SelectItem>
+                <SelectItem key="4">Urutkan 4</SelectItem>
+              </Select>
+              <Button size="lg" className="text-white font-semibold bg-[#0092AC]" onClick={onAddModalOpen}>
+                + Tambah Produk
               </Button>
+            </div>
+          </div>
+
+          <div className="tablehead flex flex-row items-center justify-between px-[320px] mt-[20px]">
+            <h2>Nama Produk</h2>
+            <h2 className="-ml-[10px]">Harga</h2>
+            <h2 className="ml-[20px]">Stok</h2>
+          </div>
+          <div className="card-container flex flex-col mt-[20px] gap-[10px]">
+            <div className="card1 flex flex-row justify-between items-center border-1 pl-[10px] pr-[50px] py-[7px] rounded-lg">
+              <div className="check-img flex flex-row items-center gap-[20px]">
+                <Checkbox size="sm" />
+                <img src={penguin} className="w-[100px]" alt="" />
+              </div>
+              <h2>Penguin Asli</h2>
+              <h2>Rp.1.500.000</h2>
+              <h2 className="mr-[40px]">29</h2>
+              <div className="delete flex flex-row items-center gap-[10px]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                  />
+                </svg>
+                <h2>Hapus</h2>
+              </div>
+            </div>
+            <div className="card1 flex flex-row justify-between items-center border-1 pl-[10px] pr-[50px] py-[7px] rounded-lg">
+              <div className="check-img flex flex-row items-center gap-[20px]">
+                <Checkbox size="sm" />
+                <img src={penguin} className="w-[100px]" alt="" />
+              </div>
+              <h2>Penguin Asli</h2>
+              <h2>Rp.1.500.000</h2>
+              <h2 className="mr-[40px]">29</h2>
+              <div className="delete flex flex-row items-center gap-[10px]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-5">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                  />
+                </svg>
+                <h2>Hapus</h2>
+              </div>
             </div>
           </div>
         </div>
@@ -351,4 +419,4 @@ const AddCatalog = () => {
   );
 };
 
-export default AddCatalog;
+export default AddCatalogList;

@@ -1,15 +1,11 @@
 import logo from "../assets/logo.png";
 import seven from "../assets/seven.png";
-import box from "../assets/box.png";
-import { Modal, ModalContent, ModalHeader, ModalBody, useDisclosure, Input } from "@nextui-org/react";
-import { Select, SelectItem } from "@nextui-org/react";
-import { Tabs, Tab, Chip } from "@nextui-org/react";
-import { Checkbox } from "@nextui-org/react";
 import penguin from "../assets/penguincard.png";
+import { Switch } from "@nextui-org/react";
 
-import { Button } from "@nextui-org/react";
-const AddCatalog = () => {
-  const { isOpen: isAddModalOpen, onOpen: onAddModalOpen, onOpenChange: onAddModalOpenChange } = useDisclosure();
+import { Button, Input } from "@nextui-org/react";
+
+const CatalogFinal = () => {
   return (
     <div className="body-mainboard min-h-screen">
       <div className="nav-mainboard flex flex-row justify-between items-center px-[35px] py-[1px] border-b-2">
@@ -138,10 +134,7 @@ const AddCatalog = () => {
           <h2 className="flex flex-row items-center gap-[15px] text-[14px] px-[20px] mt-[20px] ml-[45px]">Data Produk</h2>
           <h2 className="flex flex-row items-center gap-[15px] text-[14px] px-[20px] mt-[20px] ml-[45px]">Tambah Produk</h2>
           <h2 className="flex flex-row items-center gap-[15px] text-[14px] px-[20px] mt-[20px] ml-[45px]">Tambah Produk secara Bulk</h2>
-          <h2 className="flex flex-row items-center gap-[15px] text-[14px] px-[20px] mt-[20px] ml-[45px]">
-            {" "}
-            <span className="h-[20px] border-2 border-[#0092AC]"></span>Katalog Produk
-          </h2>
+          <h2 className="flex flex-row items-center gap-[15px] text-[14px] px-[20px] mt-[20px] ml-[45px]">Katalog Produk</h2>
           <div className="dropdown flex flex-row items-center justify-between w-full px-[20px] mt-[20px]">
             <h2 className="flex flex-row items-center gap-[15px] text-[18px]">
               {" "}
@@ -208,147 +201,97 @@ const AddCatalog = () => {
         </div>
         <div className="main-bar w-full flex-col ml-[35px] mr-[40px] mt-[40px]">
           <div className="headmain flex flex-row items-center justify-between">
-            <h2 className="text-[24px] font-semibold">Tambah Katalog</h2>
-            <Button className="bg-[#0092AC] text-white font-semibold text-[16px] px-[50px]">Simpan</Button>
+            <h2 className="text-[24px] font-semibold">Katalog Produk</h2>
+            <Button className="bg-[#0092AC] text-white font-semibold text-[16px] px-[30px]">+ Tambah Katalog</Button>
           </div>
 
-          <div className="input border-2 py-[20px] px-[20px] mt-[20px] rounded-lg">
-            <input type="text" placeholder="Tulis nama katalog..." className="px-[15px] py-[10px] border-2 w-full" />
+          <div className="selection flex flex-row gap-[30px] mt-[30px]">
+            <h2 className="text-[#0092AC] font-semibold">Semua (0)</h2>
+            <h2 className="font-semibold">Display</h2>
+            <h2 className="font-semibold">Non-Display</h2>
           </div>
 
-          <div className="empty-container flex justify-center w-full">
-            <div className="empty-view flex flex-col">
-              <img src={box} alt="" className="w-[400px]" />
-              <Button size="md" className="bg-[#0092AC] w-[200px] ml-[100px] text-white" onPress={onAddModalOpen}>
-                Tambah Produk
-              </Button>
+          <Input
+            className="w-[200px] mt-[30px]"
+            type="text"
+            placeholder="Cari Katalog"
+            labelPlacement="outside"
+            endContent={
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+              </svg>
+            }
+          />
+
+          <div className="head-table flex flex-row items-center gap-[20px] mt-[30px]">
+            <h2 className="ml-[50px]">Nama Katalog</h2>
+            <h2 className="ml-[170px]">Jumlah Produk</h2>
+            <h2 className="ml-[85px]">Status</h2>
+            <h2 className="ml-[185px]">Tautan</h2>
+          </div>
+          <div className="table-content flex flex-col mt-[20px] gap-[10px]">
+            <div className="card-1 flex flex-row items-center justify-between border-2 rounded-lg px-[20px] py-[7px]">
+              <div className="img-name flex flex-row items-center gap-[20px]">
+                <img src={penguin} className="w-[70px]" alt="" />
+                <h2 className="ml-[20px]">Gebyar Promo</h2>
+              </div>
+              <h2>29</h2>
+              <Switch defaultSelected aria-label="Automatic updates" />
+              <h2 className="underline underline-offset-2">linkto.padiumkm/skdfjds</h2>
+              <div className="delete flex flex-row items-center gap-[15px]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                  />
+                </svg>
+                <h2>Hapus</h2>
+              </div>
+            </div>
+            <div className="card-1 flex flex-row items-center justify-between border-2 rounded-lg px-[20px] py-[7px]">
+              <div className="img-name flex flex-row items-center gap-[20px]">
+                <img src={penguin} className="w-[70px]" alt="" />
+                <h2 className="ml-[20px]">New Arrivals</h2>
+              </div>
+              <h2>15</h2>
+              <Switch defaultSelected aria-label="Automatic updates" />
+              <h2 className="underline underline-offset-2">linkto.padiumkm/skdfjds</h2>
+              <div className="delete flex flex-row items-center gap-[15px]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                  />
+                </svg>
+                <h2>Hapus</h2>
+              </div>
+            </div>
+            <div className="card-1 flex flex-row items-center justify-between border-2 rounded-lg px-[20px] py-[7px]">
+              <div className="img-name flex flex-row items-center gap-[20px]">
+                <img src={penguin} className="w-[70px]" alt="" />
+                <h2 className="ml-[20px]">Gebyar Promo</h2>
+              </div>
+              <h2>29</h2>
+              <Switch defaultSelected aria-label="Automatic updates" />
+              <h2 className="underline underline-offset-2">linkto.padiumkm/skdfjds</h2>
+              <div className="delete flex flex-row items-center gap-[15px]">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                  />
+                </svg>
+                <h2>Hapus</h2>
+              </div>
             </div>
           </div>
         </div>
-        {/*open modal*/}
-        <Modal backdrop="blur" isOpen={isAddModalOpen} size="5xl" onOpenChange={onAddModalOpenChange}>
-          <ModalContent>
-            <ModalHeader className="flex flex-col gap-1 text-[20px] font-semibold">Tambah Produk</ModalHeader>
-            <ModalBody>
-              <Tabs
-                aria-label="Options"
-                color="primary"
-                variant="underlined"
-                classNames={{
-                  tabList: "gap-[40px] w-full relative rounded-none p-0 border-divider",
-                  cursor: "w-full bg-[#22d3ee]",
-                  tab: "max-w-fit px-0 h-12",
-                  tabContent: "group-data-[selected=true]:text-[#06b6d4]",
-                }}
-              >
-                <Tab
-                  key="photos"
-                  title={
-                    <div className="flex items-center space-x-2">
-                      <span>Semua</span>
-                      <Chip size="sm" variant="faded">
-                        40
-                      </Chip>
-                    </div>
-                  }
-                />
-                <Tab
-                  key="music"
-                  title={
-                    <div className="flex items-center space-x-2">
-                      <span>Aktif</span>
-                      <Chip size="sm" variant="faded">
-                        10
-                      </Chip>
-                    </div>
-                  }
-                />
-                <Tab
-                  key="videos"
-                  title={
-                    <div className="flex items-center space-x-2">
-                      <span>Stok Habis</span>
-                    </div>
-                  }
-                />
-                <Tab
-                  key="nonactive"
-                  title={
-                    <div className="flex items-center space-x-2">
-                      <span>Tidak Aktif</span>
-                    </div>
-                  }
-                />
-              </Tabs>
-              <div className="search-engine flex flex-row items-center gap-[30px] mt-[20px]">
-                <Input
-                  className="w-[200px] rounded-md"
-                  type="text"
-                  placeholder="Cari Nama Produk"
-                  labelPlacement="outside"
-                  size="lg"
-                  endContent={
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
-                    </svg>
-                  }
-                />
-                <Select size="sm" label="Pilih Kategori" className="w-[200px]">
-                  <SelectItem key="1">Kategori 1</SelectItem>
-                  <SelectItem key="2">Kategori 2</SelectItem>
-                  <SelectItem key="3">Kategori 3</SelectItem>
-                  <SelectItem key="4">Kategori 4</SelectItem>
-                </Select>
-                <Select size="sm" label="Pilih Jenis Produk" className="w-[200px]">
-                  <SelectItem key="1">Jenis 1</SelectItem>
-                  <SelectItem key="2">Jenis 2</SelectItem>
-                  <SelectItem key="3">Jenis 3</SelectItem>
-                  <SelectItem key="4">Jenis 4</SelectItem>
-                </Select>
-                <Select size="sm" label="Urutkan" className="w-[200px]">
-                  <SelectItem key="1">Urutkan 1</SelectItem>
-                  <SelectItem key="2">Urutkan 2</SelectItem>
-                  <SelectItem key="3">Urutkan 3</SelectItem>
-                  <SelectItem key="4">Urutkan 4</SelectItem>
-                </Select>
-              </div>
-
-              <div className="headtable flex flex-row items-center justify-between w-full pl-[210px] pr-[160px] mt-[20px]">
-                <h2>Nama Produk</h2>
-                <h2>Harga</h2>
-                <h2>Stok</h2>
-              </div>
-
-              <div className="card flex flex-col w-full gap-[10px]">
-                <div className="card-1 flex flex-row items-center border-1 rounded-md py-[6px] px-[20px]">
-                  <Checkbox />
-                  <img src={penguin} className="w-[90px] ml-[30px]" alt="" />
-                  <h2 className="ml-[40px]">Penguin Asli</h2>
-                  <h2 className="ml-[225px]">Rp.1.500.000</h2>
-                  <h2 className="ml-[162px]">29</h2>
-                </div>
-                <div className="card-1 flex flex-row items-center border-1 rounded-md py-[6px] px-[20px]">
-                  <Checkbox />
-                  <img src={penguin} className="w-[90px] ml-[30px]" alt="" />
-                  <h2 className="ml-[40px]">Penguin Asli</h2>
-                  <h2 className="ml-[225px]">Rp.1.500.000</h2>
-                  <h2 className="ml-[162px]">29</h2>
-                </div>
-                <div className="card-1 flex flex-row items-center border-1 rounded-md py-[6px] px-[20px]">
-                  <Checkbox />
-                  <img src={penguin} className="w-[90px] ml-[30px]" alt="" />
-                  <h2 className="ml-[40px]">Penguin Asli</h2>
-                  <h2 className="ml-[225px]">Rp.1.500.000</h2>
-                  <h2 className="ml-[162px]">29</h2>
-                </div>
-              </div>
-            </ModalBody>
-          </ModalContent>
-        </Modal>
-        {/*open modal*/}
       </div>
     </div>
   );
 };
 
-export default AddCatalog;
+export default CatalogFinal;
