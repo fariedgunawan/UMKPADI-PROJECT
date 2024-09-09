@@ -201,7 +201,7 @@ const MainBoard = () => {
         <div className="main-bar w-full flex-col ml-[35px] mr-[40px] mt-[40px]">
           <div className="headmain flex flex-row items-center justify-between">
             <h2 className="text-[24px] font-semibold">Katalog Produk</h2>
-            <Button className="bg-[#0092AC] text-white font-semibold text-[16px] px-[30px]">+ Tambah Produk</Button>
+            <Button className="bg-[#0092AC] text-white font-semibold text-[16px] px-[30px]">+ Tambah Katalog</Button>
           </div>
 
           <div className="selection flex flex-row gap-[30px] mt-[30px]">

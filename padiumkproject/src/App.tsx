@@ -6,6 +6,11 @@ import CatalogLucu from "./Page/CatalogLucu";
 import CatalogJahat from "./Page/CatalogJahat";
 import MainBoard from "./Page/MainBoard";
 import AddCatalog from "./Page/AddCatalog";
+import AddCatalogList from "./Page/AddCatalogList";
+import CatalogFinal from "./Page/CatalogFinal";
+import Chat from "./Page/Chat";
+import ShowCatalog from "./Page/ShowCatalog";
+import ShowCart from "./Page/ShowCart";
 
 function App() {
   return (
@@ -17,6 +22,11 @@ function App() {
         <Route path="/catalogjahat" element={<CatalogJahat />} />
         <Route path="/mainboard" element={<MainBoard />} />
         <Route path="/addcatalog" element={<AddCatalog />} />
+        <Route path="/addcataloglist" element={<AddCatalogList />} />
+        <Route path="/catalogfinal" element={<CatalogFinal />} />
+        <Route path="/chat" element={<Chat />} />
+        <Route path="/showcatalog" element={<ShowCatalog />} />
+        <Route path="/showcart" element={<ShowCart />} />
       </Routes>
     </Router>
   );
